@@ -35,23 +35,20 @@ int main() {
     try {
         userGuessInt = std::stoi(userGuessStr);
 
+        // checks if the user guessed correctly
+        if (userGuessInt == randomInt) {
+            std::cout << "You guessed correctly!" << std::endl;
+        } else {
+            std::cout << "You guessed incorrectly, the correct answer was "
+                      << randomInt << std::endl;
+        }
+
     // if it cannot cast, display that the input is invalid
     } catch (std::invalid_argument) {
         exception = true;
         std::cout << userGuessStr << " is an invalid integer" << std::endl;
     }
 
-
-    // workaround for else statement
-    if (!exception) {
-        // checks if the user guessed correctly
-        if (userGuessInt == randomInt) {
-            std::cout << "You guessed correctly!" << std::endl;
-        } else {
-            std::cout << "You guessed incorrectly, the correct answer was "
-            << randomInt << std::endl;
-        }
-    }
-
+    // thank the user for playing
     std::cout << "\nThank you for playing!\n";
 }
